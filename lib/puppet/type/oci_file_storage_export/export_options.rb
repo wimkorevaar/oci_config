@@ -39,6 +39,7 @@ defaults to:
       type Oci_Config::ClientOptions= Struct[{
         Optional[source]                         => String,
         Optional[require_privileged_source_port] => Boolean,
+        Optional[is_anonymous_access_allowed]    => Boolean,
         Optional[access]                         => String,
         Optional[identity_squash]                => String,
         Optional[anonymous_uid]                  => Integer,

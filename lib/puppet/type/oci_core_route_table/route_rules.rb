@@ -16,7 +16,8 @@ newproperty(:route_rules, :array_matching => :all, :parent => Puppet_X::Enterpri
       Array[
         # The details of the route rule
         type Oci_Config::RouteRule = Struct[{
-          Optional[cidr_block]         => String[1],
+          Optional[route_type]          => String[1],
+          Optional[cidr_block]          => String[1],
           Optional[destination]         => String[1],
           Optional[destination_type]    => String[1],
           Optional[network_entity_id]   => String[1],

@@ -10,7 +10,7 @@ module Puppet_X
         end
 
         def compartment?
-          id_type == :compartment || id_type == :tenancy
+          [:compartment, :tenancy].include?(id_type)
         end
 
         #

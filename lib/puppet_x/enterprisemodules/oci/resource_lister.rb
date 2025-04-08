@@ -88,6 +88,17 @@ module Puppet_X
                 client.list_public_ips('REGION', compartment_id, :lifetime => 'RESERVED').data
               when 'network_security_groups'
                 client.list_network_security_groups(:compartment_id => compartment_id).data
+              # We are in a transaition periode between all calls to use positional parameters. That is
+              # why there seem to be duplicate code for the volumes resource.
+              when 'volumes'
+                summary_data = client.send("list_#{object_type_plural}", :compartment_id => compartment_id).data
+                Puppet.debug "Found #{summary_data.size} #{object_type_plural}..."
+                if details_get
+                  Puppet.debug "Fetching detailed data for #{object_type_plural}..."
+                  summary_data.collect { |s| client.send("get_#{@object_type}", s.id).data }
+                else
+                  summary_data
+                end
               else
                 summary_data = client.send("list_#{object_type_plural}", compartment_id).data
                 Puppet.debug "Found #{summary_data.size} #{object_type_plural}..."
@@ -212,7 +223,7 @@ module Puppet_X
                   file_systems = client.list_file_systems(compartment_id, availability_domain).data
                   file_systems.collect { |fs| client.list_snapshots(fs.id).data }
                 else
-                  client.send("list_#{object_type_plural}", availability_domain, compartment_id).data
+                  client.send("list_#{object_type_plural}", :availability_domain => availability_domain, :compartment_id => compartment_id).data
                 end
               end
             end

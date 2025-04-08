@@ -11,6 +11,7 @@ newproperty(:shape_config, :parent => Puppet_X::EnterpriseModules::Oci::Property
       # The details of the launch instance Shape config
       type Oci_Config::LaunchInstanceShapeConfigDetails = Struct[{
         Optional[ocpus]                         => Float,
+        Optional[vcpus]                         => Integer,
         Optional[memory_in_gbs]                 => Float,
         Optional[processor_description]         => String[1],
         Optional[networking_bandwidth_in_gbps]  => Float,

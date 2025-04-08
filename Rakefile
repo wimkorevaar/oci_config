@@ -221,7 +221,7 @@ namespace :litmus do
     include PuppetLitmus::PuppetHelpers
     # Project root
     proj_root = File.expand_path(File.join(File.dirname(__FILE__)))
-    puts `docker exec #{ENV['TARGET_HOST']} /opt/puppetlabs/puppet/bin/gem install /etc/puppetlabs/code/environments/production/modules/oci_config//files/oci-2.18.0.gem --no-doc`
+    puts `docker exec #{ENV['TARGET_HOST']} /opt/puppetlabs/puppet/bin/gem install /etc/puppetlabs/code/environments/production/modules/oci_config//files/oci-2.21.1.gem --no-doc`
     if ENV['OCI_TENANT_INFO'] 
       bolt_upload_file(ENV['OCI_TENANT_INFO'], '/root/tenant_setup.pp')
     else

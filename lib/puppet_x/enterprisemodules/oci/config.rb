@@ -16,7 +16,7 @@ module Puppet_X
           else
             full_options = { :proxy_settings => proxy_config(tenant), :config => tenant_config(tenant), :retry_config => retry_config(tenant) }.merge(options)
           end
-          klass.new(full_options)
+          klass.new(**full_options)
         end
 
         def tenant_config(tenant = nil)

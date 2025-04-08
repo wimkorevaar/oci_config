@@ -185,8 +185,10 @@ module Puppet_X
 
         def wait_for_work_request(wait_for_resource_id)
           Puppet.debug "Wait on work-request with id #{wait_for_resource_id}..."
+          work_request_client = OCI::WorkRequests::WorkRequestClient.new(:config => tenant_config)
+
           OCI::Waiter::WorkRequest.wait_for_state(
-            client,
+            work_request_client,
             wait_for_resource_id,
             lambda do |work_request|
               Puppet.debug "Wait on work-request with id #{wait_for_resource_id}. Current status is #{work_request.status}"

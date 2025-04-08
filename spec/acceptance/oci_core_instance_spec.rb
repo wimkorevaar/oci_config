@@ -74,7 +74,7 @@ describe 'oci_core_instance' do
           source_details      => {
             source_type => 'image',
             image_type => 'image',
-            image => oci_config::latest_image_for('Oracle Linux', '7.9', /7.9-2022\./),
+            image => oci_config::latest_image_for('Oracle Linux', '9', /9\.4-2024\./),
           },
           vnics               => {
           'nic1' => {
@@ -118,7 +118,7 @@ describe 'oci_core_instance' do
           source_details      => {
             source_type => 'image',
             image_type => 'image',
-            image => oci_config::latest_image_for('Oracle Linux', '7.9', /7.9-2022\./),
+            image => oci_config::latest_image_for('Oracle Linux', '9', /9\.4-2024\./),
           },
           vnics               => {
           'nic1' => {
@@ -165,7 +165,7 @@ describe 'oci_core_instance' do
           source_details      => {
             source_type => 'image',
             image_type => 'image',
-            image => oci_config::latest_image_for('Oracle Linux', '7.9', /7.9-2022\./),
+            image => oci_config::latest_image_for('Oracle Linux', '9', /9\.4-2024\./),
           },
           vnics               => {
           'nic1' => {
