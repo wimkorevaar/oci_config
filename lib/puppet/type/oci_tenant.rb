@@ -3,7 +3,7 @@
 #
 # See the file "LICENSE" for the full license governing this code.
 #
-require 'oci'
+require 'puppet_x/enterprisemodules/oci/core'
 
 Puppet::Type.newtype(:oci_tenant) do
   include EasyType::YamlType
