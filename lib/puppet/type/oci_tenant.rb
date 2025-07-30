@@ -33,7 +33,7 @@ Puppet::Type.newtype(:oci_tenant) do
 
   DESC
 
-  parameter :name
+  isnamevar
 
   property :fingerprint
   property :private_key
